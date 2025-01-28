@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Mémoire - Défi Cérébral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎴 Mémoire Master</h1>
+        <div class="scrollable-content">
+            <div class="game-explanation">
+                <p>🔍 Trouvez toutes les paires de cartes identiques</p>
+                <p>⏱️ Le temps est limité - soyez rapide !</p>
+                <p>🎯 Choisissez votre niveau de difficulté</p>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-item">
+                    <span class="info-label">Score</span>
+                    <span class="info-value" id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Temps</span>
+                    <span class="info-value" id="timer">60s</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Niveau</span>
+                    <span class="info-value" id="level">Facile</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Record</span>
+                    <span class="info-value" id="bestScore">0</span>
+                </div>
+            </div>
+
+            <div class="game-board" id="gameBoard"></div>
+        </div>
+
+        <div class="controls">
+            <select id="levelSelect" class="level-select">
+                <option value="easy">⭐ Facile</option>
+                <option value="medium">⭐⭐ Moyen</option>
+                <option value="hard">⭐⭐⭐ Difficile</option>
+            </select>
+            
+            <div class="button-group">
+                <button id="startButton">🚀 Commencer</button>
+                <button id="cancelButton">❌ Annuler</button>
+            </div>
+        </div>
+
+        <div class="modal" id="endGameModal">
+            <div class="modal-content">
+                <h2>🏆 Résultat</h2>
+                <p id="endGameMessage"></p>
+                <div class="modal-actions">
+                    <button id="restartButton">🔄 Rejouer</button>
+                    <button id="newGameButton">🎮 Nouvelle partie</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="confirmationModal">
+            <div class="modal-content">
+                <h2>⚠️ Confirmation</h2>
+                <p>Voulez-vous vraiment annuler la partie en cours ?</p>
+                <div class="modal-actions">
+                    <button id="confirmCancel">✅ Oui</button>
+                    <button id="cancelCancel">❌ Non</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'game/js/game.js' %}"></script>
+</body>
+</html>
+
